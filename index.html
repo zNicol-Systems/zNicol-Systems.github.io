@@ -3,14 +3,27 @@
 <head>
   <meta charset="UTF-8">
   <title>Invita mi bot</title>
+
   <style>
     body {
       background: #2b2d31;
       color: white;
-      font-family: Arial;
+      font-family: Arial, sans-serif;
       text-align: center;
       padding-top: 100px;
+      margin: 0;
     }
+
+    h1 {
+      font-size: 40px;
+      margin-bottom: 10px;
+    }
+
+    p {
+      color: #b5bac1;
+      margin-bottom: 30px;
+    }
+
     a {
       background: #5865F2;
       color: white;
@@ -18,15 +31,25 @@
       text-decoration: none;
       border-radius: 10px;
       font-size: 20px;
+      transition: 0.2s;
+      display: inline-block;
+    }
+
+    a:hover {
+      background: #4752c4;
+      transform: scale(1.05);
     }
   </style>
 </head>
+
 <body>
 
 <h1>Invita mi bot 🤖</h1>
 <p>Haz click abajo para agregarlo a tu servidor</p>
 
-<a href="https://discord.com/oauth2/authorize?client_id=1395515437885952151">Invitar Bot</a>
+<a href="https://discord.com/oauth2/authorize?client_id=1395515437885952151&scope=bot%20applications.commands&permissions=8">
+  Invitar Bot
+</a>
 
 </body>
 </html>
