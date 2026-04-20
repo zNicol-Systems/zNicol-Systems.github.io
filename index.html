@@ -93,6 +93,40 @@ body::after {
   padding: 50px 20px;
   position: relative;
   z-index: 1;
+  animation: fadeIn 1.2s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* LOGO */
+.logo {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover; 
+  margin-bottom: 15px;
+  border: 3px solid #ff7ac6;
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0px); }
+}
+
+h1 {
+  font-size: 40px;
+  margin: 10px 0;
+  animation: fadeIn 1.5s ease-in-out;
+}
+
+p {
+  color: #b5bac1;
+  animation: fadeIn 1.8s ease-in-out;
 }
 
 /* BOTONES */
@@ -158,21 +192,21 @@ for (let i = 0; i < 20; i++) {
 
 <div class="container">
 
+<!-- LOGO (NO TOCADO) -->
+<video class="logo" autoplay muted loop>
+  <source src="1.mp4" type="video/mp4">
+</video>
+
 <h1>zNicol System's</h1>
 
 <p>
-  <img src="https://cdn.discordapp.com/emojis/1281344978962092094.png" width="16">
+  <img src="https://cdn.discordapp.com/emojis/1494238180143140904.png" width="16">
   La bot perfecta para gestionar tu servidor de Discord
 </p>
 
 <div class="buttons">
-  <a class="btn" href="https://discord.com/oauth2/authorize?client_id=1395515437885952151&scope=bot%20applications.commands&permissions=8">
-    Invitar
-  </a>
-
-  <a class="btn" href="https://discord.gg/CMv7K8pt7g">
-    Soporte
-  </a>
+  <a class="btn" href="https://discord.com/oauth2/authorize?client_id=1395515437885952151&scope=bot%20applications.commands&permissions=8">Invitar</a>
+  <a class="btn" href="https://discord.gg/CMv7K8pt7g">Soporte</a>
 </div>
 
 <div class="section">
@@ -188,27 +222,49 @@ for (let i = 0; i < 20; i++) {
   Hola, soy zNicol
 </h3>
 
-<p>💖 Bot multifunción kawaii ✨</p>
+<p>
+  💖 Hiiiii~ 👋 soy <b>zNicol System´s</b> 💕 tu bot mágica y multifunción creada con muchísimo amor ✨🌷
+</p>
+
+<p><b>
+  <img src="https://cdn.discordapp.com/emojis/1494243427167109153.png" width="16">
+  ¿Qué puedo hacer por ti?
+</b></p>
+
 <p>⚙️ Sistemas avanzados</p>
 <p>🛡️ Moderación elegante</p>
 <p>🎀 Comandos divertidos</p>
 
+<p><b>
+  <img src="https://cdn.discordapp.com/emojis/1494169382971113552.png" width="16">
+  Cómo usarme:
+</b></p>
+
+<p>• Prefix: <code>zNicol Prefix</code></p>
+<p>• Slash: <code>/help</code></p>
+
+<p><b>
+  <img src="https://cdn.discordapp.com/emojis/1495653263230373969.png" width="16">
+  Empieza ahora:
+</b></p>
+
+<p>💕 Escribe <code>/help</code></p>
+
+<p>
+  💜✨ <b>zNicol</b> — Tu bot digital 🌷💫
+</p>
+
   </div>
 </div>
 
-<!-- 🌐 REDES -->
+<!-- REDES (SIN CAMBIOS) -->
 <div class="socials">
+  <h3>💌 Sígueme en mis redes</h3>
 
-<h3>
-  <img src="https://cdn.discordapp.com/emojis/1281344978962092094.png" width="18">
-  Sígueme en mis redes
-</h3>
-
-<a href="#">Mi Discord</a>
-<a href="#">Mi Comunidad</a>
-<a href="#">Instagram</a>
-<a href="#">TikTok</a>
-
+  <a href="https://discord.gg/CMv7K8pt7g">Mi Discord</a>
+  <a href="https://discord.com/invite/znico-community-c-1174807266705281054">Mi Comunidad</a>
+  <a href="https://www.instagram.com/nicojk_151jk/">Instagram</a>
+  <a href="https://www.tiktok.com/@znico_jk">TikTok</a>
 </div>
 
 </div>
