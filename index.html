@@ -111,7 +111,7 @@ h1 img {
   height: 40px;
 }
 
-/* EMBED STYLE */
+/* CARD */
 .card {
   background: rgba(49,51,56,0.85);
   padding: 20px;
@@ -149,28 +149,33 @@ h1 img {
   background: linear-gradient(135deg, #ff7ac6, #ffb3e6);
 }
 
-/* 📱 RESPONSIVE MOBILE (ARREGLADO) */
+/* 📱 MOBILE FIX REAL */
 @media (max-width: 768px) {
 
+  body {
+    text-align: center;
+  }
+
   h1 {
-    font-size: 28px;
+    font-size: 26px;
     flex-direction: column;
-    gap: 5px;
+    gap: 8px;
+    justify-content: center;
   }
 
   h1 img {
-    width: 34px;
-    height: 34px;
+    width: 32px;
+    height: 32px;
   }
 
   .container {
-    padding: 25px 12px;
+    padding: 20px 10px;
   }
 
   .card {
     width: 95%;
     padding: 15px;
-    font-size: 14px;
+    text-align: left;
   }
 
   p {
@@ -179,15 +184,13 @@ h1 img {
   }
 
   .btn {
-    display: block;
     width: 90%;
-    margin: 8px auto;
     text-align: center;
   }
 
   .socials a {
     display: block;
-    width: 85%;
+    width: 90%;
     margin: 8px auto;
   }
 
@@ -197,7 +200,7 @@ h1 img {
   }
 }
 
-/* 📱 MOBILE PEQUEÑO */
+/* 📱 EXTRA SMALL */
 @media (max-width: 400px) {
 
   h1 {
@@ -209,6 +212,7 @@ h1 img {
   }
 
   .btn {
+    width: 95%;
     padding: 10px;
   }
 }
@@ -218,12 +222,10 @@ h1 img {
 
 <body>
 
-<!-- VIDEO -->
 <video autoplay muted loop id="bg-video">
 <source src="2.mp4" type="video/mp4">
 </video>
 
-<!-- PARTICULAS -->
 <script>
 for (let i = 0; i < 25; i++) {
   let p = document.createElement("div");
@@ -234,7 +236,6 @@ for (let i = 0; i < 25; i++) {
 }
 </script>
 
-<!-- FLORES -->
 <script>
 const flowers = ["🌸","🌷","💮","🌺"];
 for (let i = 0; i < 20; i++) {
@@ -260,11 +261,11 @@ for (let i = 0; i < 20; i++) {
 
 <div class="card">
 
-<p>💖 Hola, soy <b>zNicol System’s</b>, tu bot multifunción diseñada para hacer tu servidor más bonito, organizado y activo.</p>
+<p>💖 Hola, soy <b>zNicol System’s</b>, tu bot multifunción diseñada para hacer tu servidor más bonito y organizado.</p>
 
 <p><b>¿Qué puedo hacer?</b></p>
-<p>⚙️ Sistemas avanzados (niveles, automod, logs)</p>
-<p>🛡️ Moderación completa para tu servidor</p>
+<p>⚙️ Sistemas avanzados</p>
+<p>🛡️ Moderación</p>
 <p>🎮 Comandos divertidos</p>
 
 <p><b>Cómo usarme:</b></p>
