@@ -76,12 +76,6 @@ body::after {
   padding: 50px 20px;
   position: relative;
   z-index: 1;
-  animation: fadeIn 1.2s ease-in-out;
-}
-
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
 }
 
 /* LOGO */
@@ -144,6 +138,18 @@ p {
   vertical-align: middle;
   margin: 0 2px;
 }
+
+/* 💖 FONDO TIPO CHAT (NUEVO) */
+.card {
+  background: rgba(49, 51, 56, 0.65);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  padding: 20px;
+  margin: 10px auto;
+  border-radius: 15px;
+  width: 300px;
+  border: 1px solid rgba(255, 122, 198, 0.25);
+}
 </style>
 </head>
 
@@ -186,7 +192,7 @@ for (let i = 0; i < 20; i++) {
 </video>
 
 <h1>
-  <img class="emoji" src="https://cdn.discordapp.com/emojis/1494238180143140904.png">
+  <img class="emoji" src="https://cdn.discordapp.com/emojis/1494059956016513085.png">
   zNicol System's
 </h1>
 
