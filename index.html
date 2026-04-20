@@ -4,17 +4,6 @@
 <meta charset="UTF-8">
 <title>zNicol Bot</title>
 
-<!-- 🌐 PREVIEW TIPO GITHUB / DISCORD -->
-<link rel="icon" type="image/png" href="nicoll.png">
-
-<meta property="og:title" content="zNicol System's">
-<meta property="og:description" content="La bot perfecta para gestionar tu servidor de Discord">
-<meta property="og:image" content="https://tu-link.com/logo.png">
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://tu-pagina.com">
-
-<meta name="theme-color" content="#ff7ac6">
-
 <style>
 body {
   margin: 0;
@@ -72,6 +61,7 @@ body::after {
   opacity: 0.8;
   animation: fall linear infinite;
   z-index: 0;
+  pointer-events: none;
 }
 
 @keyframes fall {
@@ -114,12 +104,10 @@ body::after {
 h1 {
   font-size: 40px;
   margin: 10px 0;
-  animation: fadeIn 1.5s ease-in-out;
 }
 
 p {
   color: #b5bac1;
-  animation: fadeIn 1.8s ease-in-out;
 }
 
 /* BOTONES */
@@ -147,6 +135,14 @@ p {
   text-decoration: none;
   color: white;
   background: linear-gradient(135deg, #ff7ac6, #ffb3e6);
+}
+
+/* 🌸 EMOJIS PERSONALIZADOS */
+.emoji {
+  width: 18px;
+  height: 18px;
+  vertical-align: middle;
+  margin: 0 2px;
 }
 </style>
 </head>
@@ -185,79 +181,63 @@ for (let i = 0; i < 20; i++) {
 
 <div class="container">
 
-<!-- LOGO (NO TOCADO) -->
 <video class="logo" autoplay muted loop>
   <source src="1.mp4" type="video/mp4">
 </video>
 
-<h1>zNicol System's</h1>
+<h1>
+  <img class="emoji" src="https://cdn.discordapp.com/emojis/1494238180143140904.png">
+  zNicol System's
+</h1>
 
 <p>
-  <img src="https://cdn.discordapp.com/emojis/1494238180143140904.png" width="16">
-  La bot perfecta para gestionar tu servidor de Discord
+  💖 La bot perfecta para gestionar tu servidor de Discord ✨
 </p>
 
 <div class="buttons">
-  <a class="btn" href="https://discord.com/oauth2/authorize?client_id=1395515437885952151&scope=bot%20applications.commands&permissions=8">Invitar</a>
-  <a class="btn" href="https://discord.gg/CMv7K8pt7g">Soporte</a>
+  <a class="btn" href="#">Invitar</a>
+  <a class="btn" href="#">Soporte</a>
 </div>
 
 <div class="section">
   <h2>
-    <img src="https://cdn.discordapp.com/emojis/1281344978962092094.png" width="18">
+    <img class="emoji" src="https://cdn.discordapp.com/emojis/1494234293692796948.png">
     Información
   </h2>
 
   <div class="card">
 
 <h3>
-  <img src="https://cdn.discordapp.com/emojis/1281344978962092094.png" width="18">
+  <img class="emoji" src="https://cdn.discordapp.com/emojis/1495657566733078569.png">
   Hola, soy zNicol
 </h3>
 
 <p>
-  💖 Hiiiii~ 👋 soy <b>zNicol System´s</b> 💕 tu bot mágica y multifunción creada con muchísimo amor ✨🌷
+  💖 Hiiiii~ soy <b>zNicol</b> 💕
 </p>
 
 <p><b>
-  <img src="https://cdn.discordapp.com/emojis/1494243427167109153.png" width="16">
-  ¿Qué puedo hacer por ti?
+  <img class="emoji" src="https://cdn.discordapp.com/emojis/1494243427167109153.png">
+  ¿Qué puedo hacer?
 </b></p>
 
 <p>⚙️ Sistemas avanzados</p>
-<p>🛡️ Moderación elegante</p>
-<p>🎀 Comandos divertidos</p>
+<p>🛡️ Moderación</p>
+<p>🎀 Comandos</p>
 
 <p><b>
-  <img src="https://cdn.discordapp.com/emojis/1494169382971113552.png" width="16">
+  <img class="emoji" src="https://cdn.discordapp.com/emojis/1495653245098393600.png">
   Cómo usarme:
 </b></p>
 
-<p>• Prefix: <code>zNicol Prefix</code></p>
-<p>• Slash: <code>/help</code></p>
-
-<p><b>
-  <img src="https://cdn.discordapp.com/emojis/1495653263230373969.png" width="16">
-  Empieza ahora:
-</b></p>
-
-<p>💕 Escribe <code>/help</code></p>
+<p>• Prefix: zNicol</p>
+<p>• Slash: /help</p>
 
 <p>
-  💜✨ <b>zNicol</b> — Tu bot digital 🌷💫
+  💜 <b>zNicol</b> — Tu bot digital ✨
 </p>
 
   </div>
-</div>
-
-<!-- REDES -->
-<div class="socials">
-  <h3>💌 Sígueme en mis redes</h3>
-
-  <a href="https://discord.gg/CMv7K8pt7g">Mi Discord</a>
-  <a href="https://discord.com/invite/znico-community-c-1174807266705281054">Mi Comunidad</a>
-  <a href="https://www.instagram.com/nicojk_151jk/">Instagram</a>
-  <a href="https://www.tiktok.com/@znico_jk">TikTok</a>
 </div>
 
 </div>
