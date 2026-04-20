@@ -72,6 +72,10 @@ body::after {
 
 /* CONTENEDOR */
 .container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
   text-align: center;
   padding: 50px 20px;
   position: relative;
@@ -83,8 +87,7 @@ body::after {
   width: 100px;
   height: 100px;
   border-radius: 50%;
-  object-fit: cover; 
-  margin-bottom: 15px;
+  object-fit: cover;
   border: 3px solid #ff7ac6;
   animation: float 3s ease-in-out infinite;
 }
@@ -95,31 +98,28 @@ body::after {
   100% { transform: translateY(0px); }
 }
 
+/* TITULO SIN FONDO */
 h1 {
   font-size: 40px;
-  margin: 10px 0;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
 
-/* 💖 EMOJI GRANDE SOLO EN TITULO */
-.emoji-title {
-  width: 32px;
-  height: 32px;
-  vertical-align: middle;
-  margin-right: 6px;
+/* EMOJI GRANDE */
+h1 img {
+  width: 48px;
+  height: 48px;
 }
 
-/* 💬 FONDO TIPO CHAT PARA TEXTOS */
-.text-bg {
-  background: rgba(49, 51, 56, 0.55);
-  backdrop-filter: blur(6px);
-  padding: 10px 12px;
+/* TARJETAS DE TEXTO */
+p, h2, h3 {
+  background: rgba(49,51,56,0.75);
+  padding: 10px 15px;
   border-radius: 12px;
-  display: inline-block;
+  backdrop-filter: blur(4px);
   margin: 5px 0;
-}
-
-p {
-  color: #b5bac1;
 }
 
 /* BOTONES */
@@ -136,7 +136,7 @@ p {
 /* REDES */
 .socials {
   text-align: center;
-  margin-top: 60px;
+  margin-top: 40px;
 }
 
 .socials a {
@@ -153,12 +153,12 @@ p {
 
 <body>
 
-<!-- 🎥 VIDEO -->
+<!-- VIDEO -->
 <video autoplay muted loop id="bg-video">
 <source src="2.mp4" type="video/mp4">
 </video>
 
-<!-- 🌌 PARTICULAS -->
+<!-- PARTICULAS -->
 <script>
 for (let i = 0; i < 25; i++) {
   let p = document.createElement("div");
@@ -169,10 +169,9 @@ for (let i = 0; i < 25; i++) {
 }
 </script>
 
-<!-- 🌸 FLORES -->
+<!-- FLORES -->
 <script>
 const flowers = ["🌸","🌷","💮","🌺"];
-
 for (let i = 0; i < 20; i++) {
   let f = document.createElement("div");
   f.className = "flower";
@@ -189,60 +188,55 @@ for (let i = 0; i < 20; i++) {
   <source src="1.mp4" type="video/mp4">
 </video>
 
-<!-- 💖 H1 CON EMOJI GRANDE -->
 <h1>
-  <img class="emoji-title" src="https://cdn.discordapp.com/emojis/1494059956016513085.png">
+  <img src="https://cdn.discordapp.com/emojis/1494059956016513085.png">
   zNicol System's
 </h1>
 
-<p class="text-bg">
-  💖 La bot perfecta para gestionar tu servidor de Discord ✨
+<p>
+  <img src="https://cdn.discordapp.com/emojis/1494243427167109153.png" width="16">
+  La bot perfecta para gestionar tu servidor de Discord
 </p>
 
-<div class="buttons">
-  <a class="btn" href="#">Invitar</a>
-  <a class="btn" href="#">Soporte</a>
-</div>
+<a class="btn">Invitar</a>
+<a class="btn">Soporte</a>
 
-<div class="section">
-  <h2 class="text-bg">
-    <img class="emoji" src="https://cdn.discordapp.com/emojis/1494234293692796948.png">
-    Información
-  </h2>
+<h2>
+  <img src="https://cdn.discordapp.com/emojis/1494238180143140904.png" width="18">
+  Información
+</h2>
 
-  <div class="card text-bg">
-
-<h3 class="text-bg">
-  <img class="emoji" src="https://cdn.discordapp.com/emojis/1495657566733078569.png">
+<h3>
+  <img src="https://cdn.discordapp.com/emojis/1495657566733078569.png" width="18">
   Hola, soy zNicol
 </h3>
 
-<p class="text-bg">
-  💖 Hiiiii~ soy <b>zNicol</b> 💕
-</p>
+<p>💖 Hiiiii~ soy <b>zNicol System´s</b> 💕</p>
 
-<p class="text-bg"><b>
-  <img class="emoji" src="https://cdn.discordapp.com/emojis/1494243427167109153.png">
+<h3>
+  <img src="https://cdn.discordapp.com/emojis/1494243427167109153.png" width="18">
   ¿Qué puedo hacer?
-</b></p>
+</h3>
 
-<p class="text-bg">⚙️ Sistemas avanzados</p>
-<p class="text-bg">🛡️ Moderación</p>
-<p class="text-bg">🎀 Comandos</p>
+<p>⚙️ Sistemas avanzados</p>
+<p>🛡️ Moderación</p>
+<p>🎀 Comandos</p>
 
-<p class="text-bg"><b>
-  <img class="emoji" src="https://cdn.discordapp.com/emojis/1495653245098393600.png">
-  Cómo usarme:
-</b></p>
+<h3>
+  <img src="https://cdn.discordapp.com/emojis/1495653245098393600.png" width="18">
+  Cómo usarme
+</h3>
 
-<p class="text-bg">• Prefix: zNicol</p>
-<p class="text-bg">• Slash: /help</p>
+<p>• Prefix: zNicol</p>
+<p>• Slash: /help</p>
 
-<p class="text-bg">
-  💜 <b>zNicol</b> — Tu bot digital ✨
-</p>
+<p>💜 zNicol — Tu bot digital ✨</p>
 
-  </div>
+<div class="socials">
+  <h3>💌 Redes</h3>
+  <a href="#">Discord</a>
+  <a href="#">Comunidad</a>
+  <a href="#">Instagram</a>
 </div>
 
 </div>
