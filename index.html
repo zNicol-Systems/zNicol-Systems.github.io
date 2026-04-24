@@ -153,6 +153,37 @@ h1 img {
   background: linear-gradient(135deg, #ff7ac6, #ffb3e6);
 }
 
+/* CONTADOR ANIMADO */
+.visit-counter {
+  text-align: center;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  animation: counterFloat 3s ease-in-out infinite;
+}
+
+.visit-counter p {
+  font-weight: bold;
+  color: white;
+  text-shadow: 0 0 10px #ff7ac6;
+}
+
+.visit-counter img {
+  transform: scale(1.4);
+  transition: transform 0.3s ease, filter 0.3s ease;
+  filter: drop-shadow(0 0 10px #ff7ac6);
+}
+
+.visit-counter img:hover {
+  transform: scale(1.55);
+  filter: drop-shadow(0 0 18px #ff7ac6);
+}
+
+@keyframes counterFloat {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-6px); }
+  100% { transform: translateY(0px); }
+}
+
 /* 📱 MOBILE FIX */
 @media (max-width: 768px) {
 
@@ -162,37 +193,10 @@ h1 img {
     gap: 8px;
   }
 
-  h1 img {
-    width: 32px;
-    height: 32px;
-  }
-
-  .container {
-    padding: 20px 10px;
-  }
-
-  .card {
-    width: 95%;
-    padding: 15px;
-  }
-
-  .btn {
-    width: 90%;
-    text-align: center;
-  }
-
-  .socials a {
-    display: block;
-    width: 90%;
-    margin: 8px auto;
-  }
-
-  .logo {
-    width: 80px;
-    height: 80px;
+  .stats {
+    grid-template-columns: 1fr;
   }
 }
-
 </style>
 </head>
 
@@ -241,35 +245,27 @@ for (let i = 0; i < 20; i++) {
 </div>
 
 <div class="card">
-
 <p>💖 Hola, soy <b>zNicol System’s</b>, tu bot multifunción diseñada para hacer tu servidor más bonito y organizado.</p>
-
 <p><b>¿Qué puedo hacer?</b></p>
 <p>⚙️ Sistemas avanzados</p>
 <p>🛡️ Moderación</p>
 <p>🎮 Comandos divertidos</p>
-
 <p><b>Cómo usarme:</b></p>
-<p>• Para ver todos mis prefix usa (zNicol prefix) en cualquier canal</p>
+<p>• Para ver todos mis prefix usa (zNicol prefix)</p>
 <p>• Para ver todos mis comandos usa /help</p>
-
-<p><b>Empieza ahora:</b> usa /help 💜</p>
-
 </div>
 
 <div class="socials">
   <h3>Redes</h3>
-  <a href="https://discord.com/invite/znico-community-c-1174807266705281054">Mi Comunidad</a>
-  <a href="https://www.instagram.com/nicojk_151jk/">Instagram</a>
-  <a href="https://www.tiktok.com/@znico_jk">TikTok</a>
+  <a href="#">Mi Comunidad</a>
 </div>
 
 </div>
 
-<!-- CONTADOR DE VISITAS (ARREGLADO) -->
-<div style="text-align: center; margin-top: 30px;">
-  <p style="font-weight: bold;">Visitas a la página:</p>
-  <img src="https://visitor-badge.laobi.icu/badge?page_id=znicol-systems.github.io"/>
+<!-- CONTADOR REAL + ANIMADO -->
+<div class="visit-counter">
+  <p>Visitas a la página:</p>
+  <img src="https://visitor-badge.laobi.icu/badge?page_id=znicol-systems.github.io&left_text=Visitas&right_color=ff7ac6"/>
 </div>
 
 </body>
