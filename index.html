@@ -4,17 +4,6 @@
 <meta charset="UTF-8">
 <title>zNicol Bot</title>
 
-<!-- 🌐 PREVIEW TIPO GITHUB / DISCORD -->
-<link rel="icon" type="image/png" href="nicoll.png">
-
-<meta property="og:title" content="zNicol System's">
-<meta property="og:description" content="La bot perfecta para gestionar tu servidor de Discord">
-<meta property="og:image" content="https://tu-link.com/logo.png">
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://tu-pagina.com">
-
-<meta name="theme-color" content="#ff7ac6">
-
 <style>
 body {
   margin: 0;
@@ -60,17 +49,11 @@ body::after {
 }
 
 @keyframes floatUp {
-  from {
-    transform: translateY(100vh);
-    opacity: 0;
-  }
-  to {
-    transform: translateY(-10vh);
-    opacity: 1;
-  }
+  from { transform: translateY(100vh); opacity: 0; }
+  to { transform: translateY(-10vh); opacity: 1; }
 }
 
-/* 🌸 FLORES */
+/* FLORES */
 .flower {
   position: fixed;
   top: -10vh;
@@ -82,31 +65,19 @@ body::after {
 }
 
 @keyframes fall {
-  0% {
-    transform: translateY(-10vh) rotate(0deg);
-    opacity: 0;
-  }
-  10% {
-    opacity: 1;
-  }
-  100% {
-    transform: translateY(110vh) rotate(360deg);
-    opacity: 0;
-  }
+  0% { transform: translateY(-10vh) rotate(0deg); opacity: 0; }
+  10% { opacity: 1; }
+  100% { transform: translateY(110vh) rotate(360deg); opacity: 0; }
 }
 
 /* CONTENEDOR */
 .container {
-  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   padding: 50px 20px;
   position: relative;
   z-index: 1;
-  animation: fadeIn 1.2s ease-in-out;
-}
-
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
 }
 
 /* LOGO */
@@ -114,10 +85,10 @@ body::after {
   width: 100px;
   height: 100px;
   border-radius: 50%;
-  object-fit: cover; 
-  margin-bottom: 15px;
+  object-fit: cover;
   border: 3px solid #ff7ac6;
   animation: float 3s ease-in-out infinite;
+  margin-bottom: 15px;
 }
 
 @keyframes float {
@@ -126,20 +97,34 @@ body::after {
   100% { transform: translateY(0px); }
 }
 
+/* TITULO */
 h1 {
   font-size: 40px;
   margin: 10px 0;
-  animation: fadeIn 1.5s ease-in-out;
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
 
-p {
-  color: #b5bac1;
-  animation: fadeIn 1.8s ease-in-out;
+h1 img {
+  width: 40px;
+  height: 40px;
 }
 
-/* 🌸 BOTONES KAWAII */
+/* CARD */
+.card {
+  background: rgba(49,51,56,0.85);
+  padding: 20px;
+  border-radius: 15px;
+  width: 90%;
+  max-width: 500px;
+  backdrop-filter: blur(5px);
+  text-align: left;
+}
+
+/* BOTONES */
 .buttons {
-  margin-top: 20px;
+  margin: 15px 0;
 }
 
 .btn {
@@ -150,81 +135,38 @@ p {
   border-radius: 12px;
   text-decoration: none;
   display: inline-block;
-  transition: 0.3s;
-  position: relative;
-  overflow: hidden;
-  box-shadow: 0 0 15px rgba(255, 122, 198, 0.4);
 }
 
-.btn:hover {
-  transform: scale(1.08);
-  box-shadow: 0 0 25px rgba(255, 122, 198, 0.8);
+/* REDES */
+.socials {
+  text-align: center;
+  margin-top: 40px;
 }
 
-/* SECCIONES */
-.section {
-  margin-top: 50px;
-  animation: fadeIn 2s ease-in-out;
+.socials a {
+  display: inline-block;
+  margin: 5px 10px;
+  padding: 10px 15px;
+  border-radius: 12px;
+  text-decoration: none;
+  color: white;
+  background: linear-gradient(135deg, #ff7ac6, #ffb3e6);
 }
 
-.card {
-  background: #313338;
-  padding: 20px;
-  margin: 10px auto;
-  border-radius: 15px;
-  width: 300px;
-  transition: 0.3s;
-  animation: fadeIn 2.2s ease-in-out;
-}
-
-.card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 10px 25px rgba(255,122,198,0.3);
-}
-
-/* SCROLL SUAVE */
-html {
-  scroll-behavior: smooth;
+/* CONTADOR */
+.visit-counter {
+  text-align: center;
+  margin-top: 30px;
+  margin-bottom: 30px;
 }
 </style>
 </head>
 
 <body>
 
-<!-- 🎥 VIDEO FONDO -->
 <video autoplay muted loop id="bg-video">
 <source src="2.mp4" type="video/mp4">
 </video>
-
-<!-- 🌌 PARTICULAS -->
-<script>
-for (let i = 0; i < 25; i++) {
-  let p = document.createElement("div");
-  p.className = "particle";
-  p.style.left = Math.random() * 100 + "vw";
-  p.style.animationDuration = (3 + Math.random() * 5) + "s";
-  p.style.opacity = Math.random();
-  document.body.appendChild(p);
-}
-</script>
-
-<!-- 🌸 FLORES -->
-<script>
-const flowers = ["🌸", "🌷", "💮", "🌺"];
-
-for (let i = 0; i < 20; i++) {
-  let f = document.createElement("div");
-  f.className = "flower";
-  f.innerText = flowers[Math.floor(Math.random() * flowers.length)];
-
-  f.style.left = Math.random() * 100 + "vw";
-  f.style.animationDuration = (5 + Math.random() * 5) + "s";
-  f.style.fontSize = (14 + Math.random() * 10) + "px";
-  f.style.animationDelay = Math.random() * 5 + "s";
-
-  document.body.appendChild(f);
-}
-</script>
 
 <div class="container">
 
@@ -232,47 +174,64 @@ for (let i = 0; i < 20; i++) {
   <source src="1.mp4" type="video/mp4">
 </video>
 
-<h1>zNicol System's</h1>
-<p>La bot perfecta para gestionar tu servidor de Discord</p>
+<h1>
+  <img src="https://cdn.discordapp.com/emojis/1494059956016513085.png">
+  zNicol System's
+</h1>
 
 <div class="buttons">
   <a class="btn" href="https://discord.com/oauth2/authorize?client_id=1395515437885952151&scope=bot%20applications.commands&permissions=8">Invitar</a>
   <a class="btn" href="https://discord.gg/CMv7K8pt7g">Soporte</a>
 </div>
 
-<div class="section">
-  <h2>🎀 Información</h2>
+<div class="card">
+<p>💖 Hola, soy <b>zNicol System’s</b></p>
+</div>
 
-  <div class="card">
+</div>
 
-   <h3>🌸✨ Hola, soy zNicol ✨🌸</h3>
+<div class="visit-counter">
+  <p>Visitas:</p>
+  <img src="https://visitor-badge.laobi.icu/badge?page_id=znicol-systems.github.io"/>
+</div>
 
-<p>
-  💖 Hiiiii~ 👋 soy <b>zNicol System´s</b> 💕 tu bot mágica y multifunción creada con muchísimo amor para hacer tu servidor más bonito, ordenado y lleno de vida ✨🌷
-</p>
-
-<p><b>🌸💫 ¿Qué puedo hacer por ti?</b></p>
-<p>⚙️✨ Sistemas avanzados: niveles, automod y logs súper organizados</p>
-<p>🛡️💖 Moderación suave, segura y elegante</p>
-<p>🎀🌈 Comandos divertidos</p>
-
-<p><b>💫🌷 Cómo usarme:</b></p>
-<p>• 🌸 Prefix: <code>zNicol Prefix</code></p>
-<p>• 💫 Slash: <code>/help</code></p>
-
-<p><b>🌷💖 Empieza ahora:</b></p>
-<p>
-  💕 Escribe <code>/help</code> y descubre todo lo que puedo hacer por ti~ ✨🌸
-</p>
-
-<p>
-  💜✨ <b>zNicol</b> — Tu bot digital, siempre contigo 🌷💫
-</p>
-
+<!-- UWU NOTIFICACIÓN -->
+<div id="uwuNotif" style="position:fixed; bottom:20px; left:20px; background:rgba(49,51,56,0.9); border:1px solid #ff7ac6; border-radius:15px; padding:12px; display:flex; align-items:center; gap:10px; backdrop-filter:blur(10px); box-shadow:0 0 15px #ff7ac6; transform:translateY(120px); opacity:0; transition:0.5s; z-index:999;">
+  
+  <!-- CAMBIA AQUÍ TU LOGO -->
+<img src="nicolle.png" style="width:45px; height:45px; border-radius:50%; object-fit:cover;">
+  <div>
+    <strong style="color:#ff7ac6;">Bienvenido~ 💖</strong>
+    <p id="uwuText" style="margin:0; font-size:13px;"></p>
   </div>
 </div>
 
-</div>
+<script>
+const frasesUwu = [
+  "Holiii~ gracias por pasar uwu ✨",
+  "Eres increíble 💜",
+  "Espero que te guste el bot 🥺",
+  "Gracias por apoyar 💖",
+  "Invita el bot 😳",
+  "Te mando un abracito 🫶"
+];
+
+setTimeout(() => {
+  const box = document.getElementById("uwuNotif");
+  const text = document.getElementById("uwuText");
+
+  text.innerText = frasesUwu[Math.floor(Math.random() * frasesUwu.length)];
+
+  box.style.transform = "translateY(0)";
+  box.style.opacity = "1";
+
+  setTimeout(() => {
+    box.style.transform = "translateY(120px)";
+    box.style.opacity = "0";
+  }, 5000);
+
+}, 1000);
+</script>
 
 </body>
 </html>
