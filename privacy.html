@@ -997,7 +997,7 @@
   <input
     class="copy-input"
     id="discordComunidad"
-    value="https://discord.gg/TU-COMUNIDAD"
+    value="https://discord.com/invite/znico-community-c-1174807266705281054"
     readonly
   />
   <button class="small-btn" onclick="copyText('discordComunidad')">Copiar comunidad</button>
@@ -1007,7 +1007,7 @@
   <input
     class="copy-input"
     id="discordBot"
-    value="https://discord.gg/TU-BOT"
+    value="https://discord.gg/CMv7K8pt7g"
     readonly
   />
   <button class="small-btn" onclick="copyText('discordBot')">Copiar soporte bot</button>
@@ -1027,7 +1027,13 @@
   Copiado correctamente.
 </div>
 
-  <footer class="footer">
+</article>
+</section>
+</div>
+</main>
+
+<button class="top-button" id="topButton" onclick="scrollToTop()">↑</button>
+<footer class="footer">
     <p>
       <strong>zNicol System's</strong> — Documento oficial de privacidad y términos.
     </p>
@@ -1058,22 +1064,20 @@
         behavior: "smooth"
       });
     }
+function copyText(id) {
+  const input = document.getElementById(id);
+  const status = document.getElementById("copyStatus");
 
-    function copyPrivacyUrl() {
-      const input = document.getElementById("privacyUrl");
-      const status = document.getElementById("copyStatus");
+  navigator.clipboard.writeText(input.value).then(() => {
+    status.style.display = "block";
 
-      input.select();
-      input.setSelectionRange(0, 99999);
-
-      navigator.clipboard.writeText(input.value).then(() => {
-        status.style.display = "block";
-
-        setTimeout(() => {
-          status.style.display = "none";
-        }, 2500);
-      });
-    }
+    setTimeout(() => {
+      status.style.display = "none";
+    }, 2500);
+  }).catch(() => {
+    alert("No se pudo copiar el texto");
+  });
+}
   </script>
 </body>
 </html>
