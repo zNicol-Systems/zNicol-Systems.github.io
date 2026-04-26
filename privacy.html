@@ -1,1 +1,1048 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+  <title>Política de Privacidad | zNicol System's</title>
+
+  <meta
+    name="description"
+    content="Política de Privacidad y Términos de Servicio de zNicol System's, bot de Discord para moderación, seguridad, logs y gestión de comunidades."
+  />
+
+  <meta name="theme-color" content="#b66cff" />
+
+  <style>
+    :root {
+      --bg-main: #0f0f18;
+      --bg-card: rgba(255, 255, 255, 0.08);
+      --bg-card-strong: rgba(255, 255, 255, 0.13);
+      --text-main: #ffffff;
+      --text-soft: #d9d9e8;
+      --text-muted: #a8a8bd;
+      --primary: #b66cff;
+      --primary-light: #d9b4ff;
+      --danger: #ff6b9a;
+      --success: #7cffc4;
+      --warning: #ffd36c;
+      --border: rgba(255, 255, 255, 0.15);
+      --shadow: 0 20px 60px rgba(0, 0, 0, 0.45);
+      --radius: 22px;
+    }
+
+    * {
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(182, 108, 255, 0.25), transparent 35%),
+        radial-gradient(circle at bottom right, rgba(255, 107, 154, 0.18), transparent 35%),
+        linear-gradient(135deg, #0f0f18, #171729 60%, #11111d);
+      color: var(--text-main);
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.035) 1px, transparent 1px);
+      background-size: 42px 42px;
+      mask-image: linear-gradient(to bottom, rgba(0,0,0,0.8), transparent);
+      pointer-events: none;
+      z-index: -1;
+    }
+
+    a {
+      color: var(--primary-light);
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .navbar {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      backdrop-filter: blur(18px);
+      background: rgba(15, 15, 24, 0.72);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-inner {
+      max-width: 1180px;
+      margin: auto;
+      padding: 16px 22px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 18px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 800;
+      letter-spacing: 0.4px;
+    }
+
+    .brand-icon {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      background: linear-gradient(135deg, var(--primary), var(--danger));
+      box-shadow: 0 0 22px rgba(182, 108, 255, 0.55);
+      font-size: 20px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    .nav-links a {
+      color: var(--text-soft);
+      font-size: 14px;
+      padding: 8px 12px;
+      border-radius: 999px;
+      border: 1px solid transparent;
+    }
+
+    .nav-links a:hover {
+      text-decoration: none;
+      border-color: var(--border);
+      background: rgba(255, 255, 255, 0.08);
+    }
+
+    .hero {
+      max-width: 1180px;
+      margin: auto;
+      padding: 72px 22px 36px;
+      text-align: center;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 16px;
+      border-radius: 999px;
+      background: rgba(182, 108, 255, 0.16);
+      border: 1px solid rgba(182, 108, 255, 0.35);
+      color: var(--primary-light);
+      font-size: 14px;
+      margin-bottom: 22px;
+    }
+
+    .hero h1 {
+      margin: 0;
+      font-size: clamp(38px, 7vw, 78px);
+      line-height: 1.02;
+      letter-spacing: -2px;
+    }
+
+    .hero p {
+      max-width: 840px;
+      margin: 22px auto 0;
+      color: var(--text-soft);
+      font-size: 18px;
+      line-height: 1.75;
+    }
+
+    .hero-actions {
+      margin-top: 32px;
+      display: flex;
+      justify-content: center;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      border: 1px solid var(--border);
+      background: rgba(255, 255, 255, 0.08);
+      color: var(--text-main);
+      padding: 13px 18px;
+      border-radius: 14px;
+      font-weight: 700;
+      box-shadow: var(--shadow);
+      transition: 0.2s ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+      text-decoration: none;
+      background: rgba(255, 255, 255, 0.14);
+    }
+
+    .btn.primary {
+      background: linear-gradient(135deg, var(--primary), var(--danger));
+      border-color: transparent;
+    }
+
+    .container {
+      max-width: 1180px;
+      margin: auto;
+      padding: 24px 22px 80px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: 280px 1fr;
+      gap: 24px;
+      align-items: start;
+    }
+
+    .sidebar {
+      position: sticky;
+      top: 90px;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 18px;
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(16px);
+    }
+
+    .sidebar h3 {
+      margin: 0 0 14px;
+      font-size: 16px;
+      color: var(--primary-light);
+    }
+
+    .sidebar a {
+      display: block;
+      padding: 10px 12px;
+      border-radius: 12px;
+      color: var(--text-soft);
+      font-size: 14px;
+    }
+
+    .sidebar a:hover {
+      background: rgba(255, 255, 255, 0.09);
+      text-decoration: none;
+      color: #fff;
+    }
+
+    .content {
+      display: flex;
+      flex-direction: column;
+      gap: 22px;
+    }
+
+    .card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 28px;
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(16px);
+    }
+
+    .card strong {
+      color: #fff;
+    }
+
+    .card h2 {
+      margin: 0 0 18px;
+      font-size: 28px;
+      color: #fff;
+      letter-spacing: -0.5px;
+    }
+
+    .card h3 {
+      margin: 24px 0 10px;
+      color: var(--primary-light);
+      font-size: 20px;
+    }
+
+    .card p {
+      color: var(--text-soft);
+      line-height: 1.75;
+      margin: 12px 0;
+    }
+
+    .card ul {
+      color: var(--text-soft);
+      line-height: 1.8;
+      padding-left: 22px;
+    }
+
+    .card li {
+      margin: 7px 0;
+    }
+
+    .info-box {
+      margin: 18px 0;
+      padding: 16px;
+      border-radius: 16px;
+      background: rgba(124, 255, 196, 0.08);
+      border: 1px solid rgba(124, 255, 196, 0.25);
+      color: var(--text-soft);
+    }
+
+    .warning-box {
+      margin: 18px 0;
+      padding: 16px;
+      border-radius: 16px;
+      background: rgba(255, 211, 108, 0.08);
+      border: 1px solid rgba(255, 211, 108, 0.25);
+      color: var(--text-soft);
+    }
+
+    .danger-box {
+      margin: 18px 0;
+      padding: 16px;
+      border-radius: 16px;
+      background: rgba(255, 107, 154, 0.08);
+      border: 1px solid rgba(255, 107, 154, 0.25);
+      color: var(--text-soft);
+    }
+
+    .mini-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+      margin-top: 18px;
+    }
+
+    .mini-card {
+      padding: 16px;
+      border-radius: 18px;
+      background: rgba(255, 255, 255, 0.07);
+      border: 1px solid var(--border);
+    }
+
+    .mini-card h4 {
+      margin: 0 0 8px;
+      color: #fff;
+      font-size: 15px;
+    }
+
+    .mini-card p {
+      margin: 0;
+      font-size: 14px;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    .footer {
+      border-top: 1px solid var(--border);
+      padding: 32px 22px;
+      text-align: center;
+      color: var(--text-muted);
+      background: rgba(0, 0, 0, 0.18);
+    }
+
+    .footer strong {
+      color: #fff;
+    }
+
+    .top-button {
+      position: fixed;
+      right: 20px;
+      bottom: 20px;
+      width: 48px;
+      height: 48px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      border: 1px solid var(--border);
+      background: linear-gradient(135deg, var(--primary), var(--danger));
+      color: white;
+      cursor: pointer;
+      box-shadow: var(--shadow);
+      font-size: 20px;
+      opacity: 0;
+      pointer-events: none;
+      transition: 0.2s ease;
+      z-index: 50;
+    }
+
+    .top-button.show {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .copy-box {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 14px;
+    }
+
+    .copy-input {
+      flex: 1;
+      min-width: 240px;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      background: rgba(0, 0, 0, 0.2);
+      color: #fff;
+      padding: 12px 14px;
+      outline: none;
+    }
+
+    .small-btn {
+      border: 1px solid var(--border);
+      background: rgba(255, 255, 255, 0.1);
+      color: white;
+      padding: 12px 14px;
+      border-radius: 14px;
+      cursor: pointer;
+      font-weight: 700;
+    }
+
+    .small-btn:hover {
+      background: rgba(255, 255, 255, 0.16);
+    }
+
+    @media (max-width: 920px) {
+      .grid {
+        grid-template-columns: 1fr;
+      }
+
+      .sidebar {
+        position: static;
+      }
+
+      .mini-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .nav-inner {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .nav-links {
+        justify-content: flex-start;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <nav class="navbar">
+    <div class="nav-inner">
+      <div class="brand">
+        <div class="brand-icon">💜</div>
+        <div>
+          zNicol System's
+          <div style="font-size: 12px; color: var(--text-muted); font-weight: 400;">
+            Privacidad y Términos
+          </div>
+        </div>
+      </div>
+
+      <div class="nav-links">
+        <a href="#privacidad">Privacidad</a>
+        <a href="#datos">Datos</a>
+        <a href="#intents">Intents</a>
+        <a href="#terminos">Términos</a>
+        <a href="#contacto">Contacto</a>
+      </div>
+    </div>
+  </nav>
+
+  <header class="hero">
+    <div class="badge">🔒 Documento oficial de zNico Community</div>
+
+    <h1>Política de Privacidad<br />y Términos de Servicio</h1>
+
+    <p>
+      Este documento explica de forma clara qué información puede procesar
+      <strong>zNicol System's</strong>, cómo se utiliza dentro de Discord y cuáles son
+      las condiciones de uso del bot en servidores de comunidad.
+    </p>
+
+    <div class="hero-actions">
+      <a class="btn primary" href="#privacidad">Leer política</a>
+      <a class="btn" href="#terminos">Leer términos</a>
+    </div>
+  </header>
+
+  <main class="container">
+    <div class="grid">
+      <aside class="sidebar">
+        <h3>Contenido</h3>
+        <a href="#resumen">Resumen</a>
+        <a href="#privacidad">1. Política de Privacidad</a>
+        <a href="#responsable">2. Responsable</a>
+        <a href="#datos">3. Datos procesados</a>
+        <a href="#uso">4. Uso de datos</a>
+        <a href="#logs">5. Logs y moderación</a>
+        <a href="#intents">6. Privileged Intents</a>
+        <a href="#conservacion">7. Conservación</a>
+        <a href="#seguridad">8. Seguridad</a>
+        <a href="#derechos">9. Derechos del usuario</a>
+        <a href="#terceros">10. Terceros</a>
+        <a href="#menores">11. Menores de edad</a>
+        <a href="#cambios">12. Cambios</a>
+        <a href="#terminos">13. Términos</a>
+        <a href="#contacto">14. Contacto</a>
+      </aside>
+
+      <section class="content">
+        <article class="card" id="resumen">
+          <h2>Resumen rápido</h2>
+
+          <p>
+            <strong>zNicol System's</strong> es un bot de Discord diseñado para ayudar
+            a comunidades con herramientas de moderación, seguridad, registros de auditoría,
+            protección anti-links, protección anti-scam, comandos administrativos y funciones
+            de configuración para servidores.
+          </p>
+
+          <div class="mini-grid">
+            <div class="mini-card">
+              <h4>🔐 Seguridad</h4>
+              <p>Ayuda a detectar enlaces sospechosos, spam, invitaciones no deseadas y posibles intentos de scam.</p>
+            </div>
+
+            <div class="mini-card">
+              <h4>📋 Logs</h4>
+              <p>Puede registrar acciones importantes del servidor, como bans, cambios de canales, roles o mensajes.</p>
+            </div>
+
+            <div class="mini-card">
+              <h4>⚙️ Configuración</h4>
+              <p>Permite configurar funciones mediante comandos dentro de Discord y posibles paneles externos.</p>
+            </div>
+          </div>
+
+          <div class="info-box">
+            Este bot no vende información personal, no comparte datos con anunciantes y no usa la información
+            para crear perfiles comerciales de los usuarios.
+          </div>
+        </article>
+
+        <article class="card" id="privacidad">
+          <h2>1. Política de Privacidad</h2>
+
+          <p>
+            Esta Política de Privacidad explica cómo <strong>zNicol System's</strong>
+            puede recopilar, procesar, almacenar o utilizar cierta información necesaria
+            para el funcionamiento del bot dentro de servidores de Discord.
+          </p>
+
+          <p>
+            Al invitar, configurar o utilizar el bot en un servidor de Discord, aceptas
+            que el bot procese información limitada y necesaria para cumplir sus funciones.
+          </p>
+
+          <p>
+            Esta política aplica únicamente al uso de <strong>zNicol System's</strong>.
+            No controla ni reemplaza las políticas propias de Discord Inc. ni las normas
+            internas de cada servidor donde el bot sea utilizado.
+          </p>
+
+          <p>
+            El objetivo principal del tratamiento de datos es permitir funciones como:
+          </p>
+
+          <ul>
+            <li>Moderación de servidores.</li>
+            <li>Protección contra spam, scams y enlaces no permitidos.</li>
+            <li>Registro de acciones administrativas.</li>
+            <li>Configuración de canales, roles y comandos.</li>
+            <li>Mejora de seguridad dentro de comunidades.</li>
+            <li>Correcto funcionamiento de comandos slash y comandos con prefijo.</li>
+          </ul>
+        </article>
+
+        <article class="card" id="responsable">
+          <h2>2. Responsable del bot</h2>
+
+          <p>
+            El responsable del funcionamiento de esta aplicación es el equipo o propietario
+            de <strong>zNico Community</strong>, encargado del desarrollo, mantenimiento
+            y administración de <strong>zNicol System's</strong>.
+          </p>
+
+          <p>
+            La administración de cada servidor también puede decidir cómo configurar el bot,
+            qué canales usar para logs, qué roles tendrán permisos y qué sistemas estarán activos.
+          </p>
+
+          <div class="warning-box">
+            Si eres usuario de un servidor donde está el bot y tienes dudas sobre una acción de moderación,
+            primero debes contactar con los administradores de ese servidor.
+          </div>
+        </article>
+
+        <article class="card" id="datos">
+          <h2>3. Datos que puede procesar el bot</h2>
+
+          <p>
+            Para funcionar correctamente, el bot puede procesar datos básicos disponibles dentro de Discord.
+            Estos datos se utilizan únicamente para ejecutar funciones del bot.
+          </p>
+
+          <h3>3.1 Datos de servidores</h3>
+
+          <ul>
+            <li>ID del servidor.</li>
+            <li>Nombre del servidor.</li>
+            <li>ID de canales configurados.</li>
+            <li>ID de roles configurados.</li>
+            <li>Configuraciones de módulos activados o desactivados.</li>
+            <li>Canal de logs configurado por los administradores.</li>
+            <li>Prefijo o ajustes personalizados del servidor.</li>
+          </ul>
+
+          <h3>3.2 Datos de usuarios</h3>
+
+          <ul>
+            <li>ID de usuario de Discord.</li>
+            <li>Nombre de usuario o tag visible en Discord.</li>
+            <li>Avatar público del usuario, si Discord lo proporciona.</li>
+            <li>Roles dentro del servidor.</li>
+            <li>Información necesaria para eventos de moderación.</li>
+            <li>Estado de miembro dentro de un servidor, cuando sea necesario para logs o seguridad.</li>
+          </ul>
+
+          <h3>3.3 Datos de mensajes</h3>
+
+          <ul>
+            <li>Contenido de mensajes cuando sea necesario para sistemas anti-links, anti-spam o comandos.</li>
+            <li>ID del mensaje.</li>
+            <li>ID del canal donde se envió el mensaje.</li>
+            <li>ID del autor del mensaje.</li>
+            <li>Fecha aproximada del evento.</li>
+            <li>Información necesaria para detectar enlaces prohibidos o sospechosos.</li>
+          </ul>
+
+          <h3>3.4 Datos de moderación</h3>
+
+          <ul>
+            <li>Acciones como bans, unbans, timeouts o sanciones.</li>
+            <li>Usuario afectado por una acción.</li>
+            <li>Moderador que ejecutó una acción, cuando Discord lo permita mediante audit logs.</li>
+            <li>Razón de la acción, si fue proporcionada.</li>
+            <li>Fecha del evento.</li>
+          </ul>
+
+          <div class="danger-box">
+            El bot no solicita contraseñas, tokens personales, códigos de autenticación, información bancaria
+            ni datos privados externos a Discord.
+          </div>
+        </article>
+
+        <article class="card" id="uso">
+          <h2>4. Cómo se usan los datos</h2>
+
+          <p>
+            Los datos procesados por el bot se utilizan para brindar funciones de seguridad,
+            administración y moderación dentro de Discord.
+          </p>
+
+          <p>
+            Algunos ejemplos de uso son:
+          </p>
+
+          <ul>
+            <li>Detectar si un mensaje contiene enlaces no permitidos.</li>
+            <li>Eliminar mensajes que incumplan la configuración anti-link del servidor.</li>
+            <li>Registrar en un canal de logs acciones importantes del servidor.</li>
+            <li>Identificar al usuario que ejecutó una acción administrativa, cuando sea posible.</li>
+            <li>Aplicar configuraciones guardadas para cada servidor.</li>
+            <li>Responder comandos ejecutados por usuarios autorizados.</li>
+            <li>Evitar abuso, spam o comportamiento sospechoso.</li>
+            <li>Mostrar información de ayuda o configuración del bot.</li>
+          </ul>
+
+          <p>
+            La información no se utiliza para publicidad, venta de datos ni seguimiento comercial.
+          </p>
+        </article>
+
+        <article class="card" id="logs">
+          <h2>5. Sistema de logs y moderación</h2>
+
+          <p>
+            <strong>zNicol System's</strong> puede enviar registros a un canal configurado por
+            los administradores del servidor. Estos registros ayudan a mantener transparencia
+            y control sobre acciones relevantes.
+          </p>
+
+          <p>
+            Los logs pueden incluir eventos como:
+          </p>
+
+          <ul>
+            <li>Creación, edición o eliminación de canales.</li>
+            <li>Creación, edición o eliminación de roles.</li>
+            <li>Baneos y desbaneos.</li>
+            <li>Mensajes eliminados o editados.</li>
+            <li>Cambios en miembros, roles o apodos.</li>
+            <li>Eventos relacionados con protección anti-link o anti-scam.</li>
+            <li>Acciones de aislamiento o timeout.</li>
+          </ul>
+
+          <p>
+            La disponibilidad de algunos datos depende de los permisos del bot y de la información
+            que Discord entregue mediante sus eventos y registros de auditoría.
+          </p>
+
+          <div class="warning-box">
+            Si el bot no tiene permisos suficientes, algunos registros pueden no enviarse correctamente
+            o pueden mostrarse con información limitada.
+          </div>
+        </article>
+
+        <article class="card" id="intents">
+          <h2>6. Uso de Privileged Gateway Intents</h2>
+
+          <p>
+            Para que algunas funciones trabajen correctamente, el bot puede requerir ciertos
+            <strong>Privileged Gateway Intents</strong> de Discord.
+          </p>
+
+          <h3>6.1 Server Members Intent</h3>
+
+          <p>
+            Este intent permite al bot recibir eventos relacionados con miembros del servidor.
+            Se utiliza para funciones como:
+          </p>
+
+          <ul>
+            <li>Detectar entrada o salida de miembros.</li>
+            <li>Registrar cambios de roles.</li>
+            <li>Registrar cambios de apodo.</li>
+            <li>Gestionar funciones de moderación relacionadas con miembros.</li>
+          </ul>
+
+          <h3>6.2 Message Content Intent</h3>
+
+          <p>
+            Este intent permite analizar el contenido de mensajes cuando sea necesario.
+            Se utiliza para:
+          </p>
+
+          <ul>
+            <li>Detectar enlaces no permitidos.</li>
+            <li>Detectar posibles scams.</li>
+            <li>Procesar comandos con prefijo.</li>
+            <li>Aplicar reglas anti-spam o anti-link configuradas.</li>
+          </ul>
+
+          <h3>6.3 Presence Intent</h3>
+
+          <p>
+            Este intent puede utilizarse para funciones relacionadas con estados de usuario
+            si en algún momento son implementadas. Si no es necesario para una función activa,
+            puede permanecer sin uso o deshabilitado según la configuración del bot.
+          </p>
+
+          <div class="info-box">
+            Los intents se usan únicamente para funciones necesarias del bot dentro de Discord,
+            no para vigilancia externa ni seguimiento comercial.
+          </div>
+        </article>
+
+        <article class="card" id="conservacion">
+          <h2>7. Conservación de datos</h2>
+
+          <p>
+            Los datos pueden conservarse mientras sean necesarios para el funcionamiento del bot
+            o mientras el bot permanezca configurado en un servidor.
+          </p>
+
+          <p>
+            Ejemplos de datos que pueden mantenerse:
+          </p>
+
+          <ul>
+            <li>Configuración del servidor.</li>
+            <li>Canal de logs.</li>
+            <li>Roles exentos de ciertos sistemas.</li>
+            <li>Preferencias del sistema anti-link.</li>
+            <li>Registros necesarios para funciones de seguridad o moderación.</li>
+          </ul>
+
+          <p>
+            Cuando el bot es removido de un servidor, algunos datos de configuración pueden
+            ser eliminados, desactivados o conservarse temporalmente con fines técnicos,
+            de recuperación o prevención de abuso.
+          </p>
+        </article>
+
+        <article class="card" id="seguridad">
+          <h2>8. Seguridad de la información</h2>
+
+          <p>
+            Se procura proteger la información procesada por el bot mediante prácticas razonables
+            de seguridad, como limitar el acceso a configuraciones, mantener tokens privados y evitar
+            exposición innecesaria de datos.
+          </p>
+
+          <p>
+            Sin embargo, ningún sistema conectado a internet puede garantizar seguridad absoluta.
+            Por ello, los administradores de servidores también deben configurar correctamente
+            permisos, roles y canales.
+          </p>
+
+          <ul>
+            <li>No compartas tokens del bot.</li>
+            <li>No otorgues permisos innecesarios.</li>
+            <li>Usa canales privados para logs sensibles.</li>
+            <li>Revisa periódicamente los permisos del bot.</li>
+            <li>Configura correctamente roles exentos.</li>
+          </ul>
+        </article>
+
+        <article class="card" id="derechos">
+          <h2>9. Derechos de usuarios y servidores</h2>
+
+          <p>
+            Los usuarios y administradores pueden solicitar información sobre el uso de datos
+            relacionados con el bot, cuando sea técnicamente posible y razonable.
+          </p>
+
+          <p>
+            Los administradores de servidores pueden:
+          </p>
+
+          <ul>
+            <li>Desactivar módulos del bot.</li>
+            <li>Cambiar canales configurados.</li>
+            <li>Remover el bot del servidor.</li>
+            <li>Solicitar eliminación de configuraciones relacionadas con su servidor.</li>
+          </ul>
+
+          <p>
+            Los usuarios pueden contactar al equipo responsable si consideran que existe un problema
+            relacionado con privacidad o uso indebido de información.
+          </p>
+        </article>
+
+        <article class="card" id="terceros">
+          <h2>10. Servicios de terceros</h2>
+
+          <p>
+            El bot funciona dentro de Discord y depende de la API de Discord para recibir eventos,
+            responder comandos y ejecutar funciones.
+          </p>
+
+          <p>
+            También puede usar servicios técnicos para alojamiento, base de datos o despliegue.
+            Estos servicios se utilizan únicamente para mantener el funcionamiento del bot.
+          </p>
+
+          <ul>
+            <li>Discord API para eventos, usuarios, servidores y comandos.</li>
+            <li>Servicios de hosting para ejecutar el bot.</li>
+            <li>Bases de datos para guardar configuraciones necesarias.</li>
+            <li>Servicios web si existe dashboard o página informativa.</li>
+          </ul>
+
+          <p>
+            El uso de Discord también está sujeto a las propias políticas de Discord.
+          </p>
+        </article>
+
+        <article class="card" id="menores">
+          <h2>11. Menores de edad</h2>
+
+          <p>
+            El bot está diseñado para utilizarse dentro de Discord y no está dirigido específicamente
+            a recopilar información de menores de edad.
+          </p>
+
+          <p>
+            El uso de Discord por parte de menores debe cumplir las normas y requisitos de edad
+            establecidos por Discord y por las leyes aplicables en cada país.
+          </p>
+        </article>
+
+        <article class="card" id="cambios">
+          <h2>12. Cambios en esta política</h2>
+
+          <p>
+            Esta política puede actualizarse cuando se agreguen nuevas funciones, cambien sistemas
+            internos o sea necesario mejorar la claridad del documento.
+          </p>
+
+          <p>
+            La versión actualizada estará disponible en esta misma página. Se recomienda revisar
+            este documento periódicamente.
+          </p>
+
+          <p>
+            Fecha de última actualización:
+            <strong>26 de abril de 2026</strong>
+          </p>
+        </article>
+
+        <article class="card" id="terminos">
+          <h2>13. Términos de Servicio</h2>
+
+          <p>
+            Al invitar o utilizar <strong>zNicol System's</strong>, aceptas estos Términos de Servicio.
+            Si no estás de acuerdo, debes remover el bot de tu servidor o dejar de utilizar sus funciones.
+          </p>
+
+          <h3>13.1 Uso permitido</h3>
+
+          <p>
+            Puedes utilizar el bot para administración, seguridad, moderación y gestión de servidores
+            de Discord, siempre respetando las normas de Discord y las leyes aplicables.
+          </p>
+
+          <ul>
+            <li>Usar comandos de configuración.</li>
+            <li>Activar sistemas de seguridad.</li>
+            <li>Configurar canales de logs.</li>
+            <li>Aplicar moderación de forma responsable.</li>
+            <li>Utilizar el bot en comunidades legítimas.</li>
+          </ul>
+
+          <h3>13.2 Uso prohibido</h3>
+
+          <p>
+            No está permitido utilizar el bot para:
+          </p>
+
+          <ul>
+            <li>Acosar, atacar o perjudicar usuarios.</li>
+            <li>Violar los Términos de Servicio de Discord.</li>
+            <li>Automatizar spam, raid o abuso.</li>
+            <li>Intentar obtener datos privados no autorizados.</li>
+            <li>Modificar, clonar o explotar el bot sin permiso.</li>
+            <li>Usar el bot para actividades maliciosas.</li>
+          </ul>
+
+          <h3>13.3 Responsabilidad del servidor</h3>
+
+          <p>
+            Los administradores de cada servidor son responsables de configurar correctamente el bot,
+            sus permisos, canales, roles y sistemas activos.
+          </p>
+
+          <p>
+            El mal uso del bot por parte de administradores o moderadores de un servidor no representa
+            necesariamente una acción directa del propietario del bot.
+          </p>
+
+          <h3>13.4 Disponibilidad</h3>
+
+          <p>
+            El bot puede estar temporalmente fuera de servicio por mantenimiento, errores técnicos,
+            problemas de hosting, cambios en Discord o actualizaciones.
+          </p>
+
+          <p>
+            No se garantiza disponibilidad permanente o libre de errores.
+          </p>
+
+          <h3>13.5 Cambios en funciones</h3>
+
+          <p>
+            Las funciones del bot pueden cambiar, agregarse o eliminarse con el tiempo.
+            Algunas funciones pueden requerir permisos adicionales o configuración específica.
+          </p>
+
+          <h3>13.6 Suspensión de uso</h3>
+
+          <p>
+            El acceso al bot puede limitarse o removerse de servidores que hagan mal uso del sistema,
+            intenten abusar de sus funciones o incumplan estos términos.
+          </p>
+        </article>
+
+        <article class="card" id="contacto">
+          <h2>14. Contacto</h2>
+
+          <p>
+            Para consultas sobre privacidad, términos, eliminación de datos o reportes relacionados
+            con el bot, puedes contactar al propietario o equipo responsable de <strong>zNico Community</strong>.
+          </p>
+
+          <p>
+            Recomendado: coloca aquí tu Discord, servidor de soporte o correo si tienes uno.
+          </p>
+
+          <div class="copy-box">
+            <input
+              class="copy-input"
+              id="privacyUrl"
+              value="https://znicol-systems.github.io/privacy.html"
+              readonly
+            />
+            <button class="small-btn" onclick="copyPrivacyUrl()">Copiar URL</button>
+          </div>
+
+          <div class="info-box" id="copyStatus" style="display: none;">
+            URL copiada correctamente.
+          </div>
+        </article>
+      </section>
+    </div>
+  </main>
+
+  <button class="top-button" id="topButton" onclick="scrollToTop()">↑</button>
+
+  <footer class="footer">
+    <p>
+      <strong>zNicol System's</strong> — Documento oficial de privacidad y términos.
+    </p>
+
+    <p>
+      Desarrollado para proteger y administrar comunidades de Discord.
+    </p>
+
+    <p>
+      © 2026 zNico Community. Todos los derechos reservados.
+    </p>
+  </footer>
+
+  <script>
+    const topButton = document.getElementById("topButton");
+
+    window.addEventListener("scroll", () => {
+      if (window.scrollY > 500) {
+        topButton.classList.add("show");
+      } else {
+        topButton.classList.remove("show");
+      }
+    });
+
+    function scrollToTop() {
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+      });
+    }
+
+    function copyPrivacyUrl() {
+      const input = document.getElementById("privacyUrl");
+      const status = document.getElementById("copyStatus");
+
+      input.select();
+      input.setSelectionRange(0, 99999);
+
+      navigator.clipboard.writeText(input.value).then(() => {
+        status.style.display = "block";
+
+        setTimeout(() => {
+          status.style.display = "none";
+        }, 2500);
+      });
+    }
+  </script>
+</body>
+</html>
