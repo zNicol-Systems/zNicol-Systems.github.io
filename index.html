@@ -1,221 +1,1210 @@
-<!DOCTYPE html> 
+<!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>zNicol System's • Bot de Moderación y Seguridad</title>
+  <title>zNicol System's • Bot de Moderación y Seguridad</title>
 
-<meta name="description" content="zNicol System's es un bot avanzado de Discord con sistemas de moderación, seguridad anti-scam, anti-links, logs profesionales y herramientas para gestionar comunidades de forma eficiente.">
+  <meta name="description" content="zNicol System's es un bot avanzado de Discord con sistemas de moderación, seguridad anti-scam, anti-links, logs profesionales y herramientas para gestionar comunidades de forma eficiente.">
 
-<meta name="keywords" content="discord bot, moderacion, anti scam, anti links, logs discord, bot seguridad discord, znicol systems">
-<meta name="author" content="zNico Community">
+  <meta name="keywords" content="discord bot, moderacion, anti scam, anti links, logs discord, bot seguridad discord, znicol systems, bot discord español, bot de seguridad">
+  <meta name="author" content="zNico Community">
 
-<!-- Open Graph (Discord, Facebook, etc) -->
-<meta property="og:title" content="Invita a zNicol System's • Bot de Moderación y Seguridad">
-<meta property="og:description" content="Sistema anti-scam, anti-links, logs avanzados, moderación completa y comandos útiles. Todo lo que necesitas para proteger y mejorar tu servidor de Discord.">
-<meta property="og:image" content="https://znicol-systems.github.io/nicolle.png">
-<meta property="og:url" content="https://znicol-systems.github.io/">
-<meta property="og:type" content="website">
-<meta property="og:site_name" content="zNicol System's">
+  <meta property="og:title" content="Invita a zNicol System's • Bot de Moderación y Seguridad">
+  <meta property="og:description" content="Sistema anti-scam, anti-links, logs avanzados, moderación completa y comandos útiles. Todo lo que necesitas para proteger y mejorar tu servidor de Discord.">
+  <meta property="og:image" content="https://znicol-systems.github.io/nicolle.png">
+  <meta property="og:url" content="https://znicol-systems.github.io/">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="zNicol System's">
 
-<!-- Twitter (por si alguien comparte ahí) -->
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Invita a zNicol System's • Bot de Moderación y Seguridad">
-<meta name="twitter:description" content="Sistema anti-scam, anti-links, logs avanzados, moderación completa y comandos útiles.">
-<meta name="twitter:image" content="https://znicol-systems.github.io/nicolle.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Invita a zNicol System's • Bot de Moderación y Seguridad">
+  <meta name="twitter:description" content="Sistema anti-scam, anti-links, logs avanzados, moderación completa y comandos útiles.">
+  <meta name="twitter:image" content="https://znicol-systems.github.io/nicolle.png">
 
-<!-- Color del embed / navegador -->
-<meta name="theme-color" content="#ff7ac6">
+  <meta name="theme-color" content="#ff7ac6">
 
-<!-- Favicon -->
-<link rel="icon" href="https://znicol-systems.github.io/nicolle.png" type="image/png">
+  <link rel="icon" href="https://znicol-systems.github.io/nicolle.png" type="image/png">
 
-<style>
-body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-  color: white;
-  background: #1e1f22;
-  overflow-x: hidden;
-}
+  <style>
+    :root {
+      --bg-dark: #111217;
+      --bg-card: rgba(49, 51, 56, 0.86);
+      --pink: #ff7ac6;
+      --pink-light: #ffb3e6;
+      --purple: #b388ff;
+      --white: #ffffff;
+      --text-soft: #f4dff0;
+      --border-pink: rgba(255, 122, 198, 0.45);
+      --shadow-pink: rgba(255, 122, 198, 0.35);
+      --shadow-dark: rgba(0, 0, 0, 0.55);
+    }
 
-/* VIDEO FONDO */
-#bg-video {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  z-index: -2;
-}
+    * {
+      box-sizing: border-box;
+    }
 
-/* OSCURECER FONDO */
-body::after {
-  content: "";
-  position: fixed;
-  width: 100%;
-  height: 100%;
-  background: rgba(0,0,0,0.55);
-  top: 0;
-  left: 0;
-  z-index: -1;
-}
+    html {
+      scroll-behavior: smooth;
+    }
 
-/* PARTICULAS */
-.particle {
-  position: fixed;
-  width: 6px;
-  height: 6px;
-  background: #ff7ac6;
-  border-radius: 50%;
-  opacity: 0.5;
-  animation: floatUp linear infinite;
-  z-index: -1;
-}
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      color: var(--white);
+      background: var(--bg-dark);
+      overflow-x: hidden;
+    }
 
-@keyframes floatUp {
-  from { transform: translateY(100vh); opacity: 0; }
-  to { transform: translateY(-10vh); opacity: 1; }
-}
+    body::after {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background:
+        radial-gradient(circle at top, rgba(255, 122, 198, 0.16), transparent 35%),
+        rgba(0, 0, 0, 0.58);
+      z-index: -1;
+      pointer-events: none;
+    }
 
-/* FLORES */
-.flower {
-  position: fixed;
-  top: -10vh;
-  font-size: 18px;
-  opacity: 0.8;
-  animation: fall linear infinite;
-  z-index: 0;
-  pointer-events: none;
-}
+    #bg-video {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      object-fit: cover;
+      z-index: -3;
+    }
 
-@keyframes fall {
-  0% { transform: translateY(-10vh) rotate(0deg); opacity: 0; }
-  10% { opacity: 1; }
-  100% { transform: translateY(110vh) rotate(360deg); opacity: 0; }
-}
+    .bg-fallback {
+      position: fixed;
+      inset: 0;
+      background:
+        linear-gradient(135deg, #161722, #2d1930, #14151d);
+      z-index: -4;
+    }
 
-/* CONTENEDOR */
-.container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 50px 20px;
-  position: relative;
-  z-index: 1;
-}
+    .particles {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 0;
+      overflow: hidden;
+    }
 
-/* LOGO */
-.logo {
-  width: 100px;
-  height: 100px;
-  border-radius: 50%;
-  object-fit: cover;
-  border: 3px solid #ff7ac6;
-  animation: float 3s ease-in-out infinite;
-  margin-bottom: 15px;
-}
+    .particle {
+      position: absolute;
+      bottom: -20px;
+      width: 7px;
+      height: 7px;
+      background: var(--pink);
+      border-radius: 50%;
+      opacity: 0.55;
+      animation: floatUp linear infinite;
+      box-shadow: 0 0 12px var(--pink);
+    }
 
-@keyframes float {
-  0% { transform: translateY(0px); }
-  50% { transform: translateY(-10px); }
-  100% { transform: translateY(0px); }
-}
+    .particle:nth-child(1) {
+      left: 5%;
+      animation-duration: 9s;
+      animation-delay: 0s;
+    }
 
-/* TITULO */
-h1 {
-  font-size: 40px;
-  margin: 10px 0;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
+    .particle:nth-child(2) {
+      left: 12%;
+      animation-duration: 13s;
+      animation-delay: 2s;
+    }
 
-h1 img {
-  width: 40px;
-  height: 40px;
-}
+    .particle:nth-child(3) {
+      left: 21%;
+      animation-duration: 11s;
+      animation-delay: 1s;
+    }
 
-/* CARD */
-.card {
-  background: rgba(49,51,56,0.85);
-  padding: 20px;
-  border-radius: 15px;
-  width: 90%;
-  max-width: 500px;
-  backdrop-filter: blur(5px);
-  text-align: left;
-}
+    .particle:nth-child(4) {
+      left: 29%;
+      animation-duration: 15s;
+      animation-delay: 3s;
+    }
 
-/* PRESENTACION CUTE */
-.presentation {
-  margin-top: 15px;
-  padding: 15px;
-  border-radius: 15px;
-  background: rgba(255,122,198,0.12);
-  border: 1px solid rgba(255,122,198,0.45);
-  box-shadow: 0 0 15px rgba(255,122,198,0.25);
-}
+    .particle:nth-child(5) {
+      left: 36%;
+      animation-duration: 10s;
+      animation-delay: 0.5s;
+    }
 
-.presentation h2 {
-  margin-top: 0;
-  color: #ffb3e6;
-  text-align: center;
-}
+    .particle:nth-child(6) {
+      left: 44%;
+      animation-duration: 14s;
+      animation-delay: 2.5s;
+    }
 
-.presentation p {
-  line-height: 1.5;
-}
+    .particle:nth-child(7) {
+      left: 52%;
+      animation-duration: 12s;
+      animation-delay: 1.4s;
+    }
 
-/* BOTONES */
-.buttons {
-  margin: 15px 0;
-}
+    .particle:nth-child(8) {
+      left: 60%;
+      animation-duration: 16s;
+      animation-delay: 4s;
+    }
 
-.btn {
-  background: linear-gradient(135deg, #ff7ac6, #ffb3e6);
-  color: white;
-  padding: 12px 25px;
-  margin: 5px;
-  border-radius: 12px;
-  text-decoration: none;
-  display: inline-block;
-}
+    .particle:nth-child(9) {
+      left: 70%;
+      animation-duration: 9s;
+      animation-delay: 1.8s;
+    }
 
-/* REDES */
-.socials {
-  text-align: center;
-  margin-top: 40px;
-}
+    .particle:nth-child(10) {
+      left: 82%;
+      animation-duration: 13s;
+      animation-delay: 0.8s;
+    }
 
-.socials a {
-  display: inline-block;
-  margin: 5px 10px;
-  padding: 10px 15px;
-  border-radius: 12px;
-  text-decoration: none;
-  color: white;
-  background: linear-gradient(135deg, #ff7ac6, #ffb3e6);
-}
+    .particle:nth-child(11) {
+      left: 91%;
+      animation-duration: 15s;
+      animation-delay: 2.8s;
+    }
 
-/* CONTADOR */
-.visit-counter {
-  text-align: center;
-  margin-top: 30px;
-  margin-bottom: 30px;
-}
-</style>
+    @keyframes floatUp {
+      0% {
+        transform: translateY(0) scale(0.7);
+        opacity: 0;
+      }
+
+      10% {
+        opacity: 0.7;
+      }
+
+      100% {
+        transform: translateY(-110vh) scale(1.2);
+        opacity: 0;
+      }
+    }
+
+    .flowers {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 0;
+      overflow: hidden;
+    }
+
+    .flower {
+      position: absolute;
+      top: -40px;
+      font-size: 20px;
+      opacity: 0.85;
+      animation: fall linear infinite;
+    }
+
+    .flower:nth-child(1) {
+      left: 8%;
+      animation-duration: 13s;
+      animation-delay: 0s;
+    }
+
+    .flower:nth-child(2) {
+      left: 18%;
+      animation-duration: 17s;
+      animation-delay: 3s;
+    }
+
+    .flower:nth-child(3) {
+      left: 31%;
+      animation-duration: 15s;
+      animation-delay: 1s;
+    }
+
+    .flower:nth-child(4) {
+      left: 46%;
+      animation-duration: 19s;
+      animation-delay: 4s;
+    }
+
+    .flower:nth-child(5) {
+      left: 64%;
+      animation-duration: 16s;
+      animation-delay: 2s;
+    }
+
+    .flower:nth-child(6) {
+      left: 78%;
+      animation-duration: 14s;
+      animation-delay: 5s;
+    }
+
+    .flower:nth-child(7) {
+      left: 93%;
+      animation-duration: 18s;
+      animation-delay: 1.5s;
+    }
+
+    @keyframes fall {
+      0% {
+        transform: translateY(-10vh) rotate(0deg);
+        opacity: 0;
+      }
+
+      10% {
+        opacity: 1;
+      }
+
+      100% {
+        transform: translateY(115vh) rotate(360deg);
+        opacity: 0;
+      }
+    }
+
+    .page {
+      position: relative;
+      z-index: 1;
+      min-height: 100vh;
+    }
+
+    .navbar {
+      width: min(1100px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 20px 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 15px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      color: var(--white);
+      font-weight: bold;
+    }
+
+    .brand img {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      border: 2px solid var(--pink);
+      object-fit: cover;
+      box-shadow: 0 0 18px var(--shadow-pink);
+    }
+
+    .brand span {
+      font-size: 18px;
+      letter-spacing: 0.3px;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    .nav-links a {
+      color: var(--white);
+      text-decoration: none;
+      font-size: 14px;
+      padding: 9px 12px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      transition: 0.25s ease;
+    }
+
+    .nav-links a:hover {
+      background: rgba(255, 122, 198, 0.22);
+      border-color: var(--border-pink);
+      transform: translateY(-2px);
+    }
+
+    .hero {
+      width: min(1100px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 40px 0 30px;
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      align-items: center;
+      gap: 30px;
+    }
+
+    .hero-content {
+      background: rgba(17, 18, 23, 0.42);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 28px;
+      padding: 32px;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 20px 60px var(--shadow-dark);
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 9px 13px;
+      border-radius: 999px;
+      background: rgba(255, 122, 198, 0.16);
+      border: 1px solid var(--border-pink);
+      color: var(--pink-light);
+      font-weight: bold;
+      font-size: 14px;
+      margin-bottom: 16px;
+    }
+
+    .hero h1 {
+      margin: 0;
+      font-size: clamp(36px, 7vw, 66px);
+      line-height: 1.02;
+      letter-spacing: -1.5px;
+    }
+
+    .hero h1 span {
+      background: linear-gradient(135deg, var(--pink), var(--pink-light), var(--purple));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero-text {
+      margin: 18px 0 0;
+      color: var(--text-soft);
+      font-size: 18px;
+      line-height: 1.7;
+    }
+
+    .hero-actions {
+      margin-top: 24px;
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 13px 22px;
+      border-radius: 14px;
+      text-decoration: none;
+      color: var(--white);
+      font-weight: bold;
+      border: 1px solid transparent;
+      transition: 0.25s ease;
+      cursor: pointer;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--pink), var(--pink-light));
+      box-shadow: 0 12px 28px rgba(255, 122, 198, 0.28);
+    }
+
+    .btn-secondary {
+      background: rgba(255, 255, 255, 0.09);
+      border-color: rgba(255, 255, 255, 0.12);
+    }
+
+    .btn:hover {
+      transform: translateY(-3px);
+      filter: brightness(1.08);
+    }
+
+    .hero-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-pink);
+      border-radius: 30px;
+      padding: 24px;
+      text-align: center;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 20px 60px var(--shadow-dark);
+    }
+
+    .logo-video {
+      width: 138px;
+      height: 138px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 4px solid var(--pink);
+      box-shadow: 0 0 35px var(--shadow-pink);
+      animation: logoFloat 3s ease-in-out infinite;
+    }
+
+    @keyframes logoFloat {
+      0% {
+        transform: translateY(0);
+      }
+
+      50% {
+        transform: translateY(-10px);
+      }
+
+      100% {
+        transform: translateY(0);
+      }
+    }
+
+    .hero-card h2 {
+      margin: 18px 0 8px;
+      font-size: 26px;
+    }
+
+    .hero-card p {
+      margin: 0;
+      line-height: 1.6;
+      color: var(--text-soft);
+    }
+
+    .mini-stats {
+      margin-top: 18px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+    }
+
+    .mini-stat {
+      padding: 12px 8px;
+      border-radius: 16px;
+      background: rgba(255, 122, 198, 0.11);
+      border: 1px solid rgba(255, 122, 198, 0.2);
+    }
+
+    .mini-stat strong {
+      display: block;
+      font-size: 20px;
+      color: var(--pink-light);
+    }
+
+    .mini-stat span {
+      display: block;
+      font-size: 12px;
+      color: var(--text-soft);
+      margin-top: 3px;
+    }
+
+    .section {
+      width: min(1100px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 35px 0;
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 24px;
+    }
+
+    .section-header h2 {
+      margin: 0;
+      font-size: clamp(28px, 5vw, 42px);
+    }
+
+    .section-header p {
+      margin: 10px auto 0;
+      max-width: 720px;
+      color: var(--text-soft);
+      line-height: 1.7;
+    }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+
+    .feature-card {
+      background: var(--bg-card);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 24px;
+      padding: 20px;
+      backdrop-filter: blur(8px);
+      transition: 0.25s ease;
+      box-shadow: 0 12px 35px rgba(0, 0, 0, 0.25);
+    }
+
+    .feature-card:hover {
+      transform: translateY(-5px);
+      border-color: var(--border-pink);
+      box-shadow: 0 18px 45px rgba(255, 122, 198, 0.18);
+    }
+
+    .feature-icon {
+      width: 46px;
+      height: 46px;
+      display: grid;
+      place-items: center;
+      border-radius: 16px;
+      background: linear-gradient(135deg, rgba(255, 122, 198, 0.22), rgba(179, 136, 255, 0.18));
+      border: 1px solid rgba(255, 122, 198, 0.25);
+      font-size: 24px;
+      margin-bottom: 12px;
+    }
+
+    .feature-card h3 {
+      margin: 0 0 8px;
+      font-size: 20px;
+    }
+
+    .feature-card p {
+      margin: 0;
+      color: var(--text-soft);
+      line-height: 1.65;
+      font-size: 15px;
+    }
+
+    .info-panel {
+      background: var(--bg-card);
+      border: 1px solid var(--border-pink);
+      border-radius: 26px;
+      padding: 24px;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
+    }
+
+    .info-panel p {
+      color: var(--text-soft);
+      line-height: 1.7;
+      margin: 0 0 12px;
+    }
+
+    .info-panel p:last-child {
+      margin-bottom: 0;
+    }
+
+    .commands {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+    }
+
+    .command-box {
+      background: rgba(0, 0, 0, 0.22);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 18px;
+      padding: 16px;
+    }
+
+    .command-box code {
+      display: inline-block;
+      padding: 7px 10px;
+      border-radius: 10px;
+      background: rgba(255, 122, 198, 0.15);
+      color: var(--pink-light);
+      font-weight: bold;
+      margin-bottom: 8px;
+    }
+
+    .command-box p {
+      margin: 0;
+      color: var(--text-soft);
+      line-height: 1.6;
+    }
+
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      counter-reset: step;
+    }
+
+    .step-card {
+      position: relative;
+      background: var(--bg-card);
+      border-radius: 22px;
+      padding: 22px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      counter-increment: step;
+      overflow: hidden;
+    }
+
+    .step-card::before {
+      content: counter(step);
+      position: absolute;
+      right: 18px;
+      top: 12px;
+      font-size: 58px;
+      font-weight: bold;
+      color: rgba(255, 122, 198, 0.13);
+    }
+
+    .step-card h3 {
+      margin: 0 0 8px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .step-card p {
+      margin: 0;
+      color: var(--text-soft);
+      line-height: 1.65;
+      position: relative;
+      z-index: 1;
+    }
+
+    .visit-counter {
+      text-align: center;
+      margin: 10px auto 30px;
+    }
+
+    .visit-counter p {
+      margin: 0 0 8px;
+      color: var(--text-soft);
+      font-weight: bold;
+    }
+
+    .footer {
+      width: min(1100px, calc(100% - 32px));
+      margin: 20px auto 0;
+      padding: 24px 0 36px;
+      text-align: center;
+      color: var(--text-soft);
+    }
+
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-bottom: 12px;
+    }
+
+    .footer-links a {
+      color: var(--white);
+      text-decoration: none;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.08);
+      transition: 0.25s ease;
+    }
+
+    .footer-links a:hover {
+      background: rgba(255, 122, 198, 0.2);
+    }
+
+    #uwuNotif {
+      position: fixed;
+      bottom: 20px;
+      left: 20px;
+      background: rgba(49, 51, 56, 0.92);
+      border: 1px solid var(--pink);
+      border-radius: 18px;
+      padding: 12px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 0 18px var(--shadow-pink);
+      transform: translateY(130px);
+      opacity: 0;
+      transition: 0.5s ease;
+      z-index: 999;
+      max-width: calc(100% - 40px);
+    }
+
+    #uwuNotif img {
+      width: 45px;
+      height: 45px;
+      border-radius: 50%;
+      object-fit: cover;
+      flex: 0 0 auto;
+    }
+
+    #uwuNotif strong {
+      color: var(--pink);
+      display: block;
+      margin-bottom: 3px;
+    }
+
+    #uwuText {
+      margin: 0;
+      font-size: 13px;
+      color: var(--white);
+      line-height: 1.4;
+    }
+
+    @media (max-width: 900px) {
+      .hero {
+        grid-template-columns: 1fr;
+      }
+
+      .features-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .steps {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .navbar {
+        flex-direction: column;
+      }
+
+      .nav-links {
+        justify-content: center;
+      }
+
+      .hero-content {
+        padding: 24px;
+      }
+
+      .features-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .commands {
+        grid-template-columns: 1fr;
+      }
+
+      .mini-stats {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-actions {
+        flex-direction: column;
+      }
+
+      .btn {
+        width: 100%;
+      }
+
+      #uwuNotif {
+        left: 12px;
+        bottom: 12px;
+        max-width: calc(100% - 24px);
+      }
+    }
+  </style>
 </head>
 
 <body>
+  <div class="bg-fallback"></div>
 
-<!-- TODO LO DEMÁS ES EXACTAMENTE IGUAL -->
+  <video autoplay muted loop playsinline id="bg-video">
+    <source src="2.mp4" type="video/mp4">
+  </video>
 
-<img src="https://znicol-systems.github.io/nicolle.png" style="width:45px; height:45px; border-radius:50%; object-fit:cover;">
+  <div class="particles">
+    <span class="particle"></span>
+    <span class="particle"></span>
+    <span class="particle"></span>
+    <span class="particle"></span>
+    <span class="particle"></span>
+    <span class="particle"></span>
+    <span class="particle"></span>
+    <span class="particle"></span>
+    <span class="particle"></span>
+    <span class="particle"></span>
+    <span class="particle"></span>
+  </div>
 
-<!-- TODO TU JS ORIGINAL SIGUE IGUAL -->
+  <div class="flowers">
+    <span class="flower">🌸</span>
+    <span class="flower">💮</span>
+    <span class="flower">🌷</span>
+    <span class="flower">🌸</span>
+    <span class="flower">💮</span>
+    <span class="flower">🌷</span>
+    <span class="flower">🌸</span>
+  </div>
 
+  <main class="page">
+    <nav class="navbar">
+      <a class="brand" href="#">
+        <img src="https://znicol-systems.github.io/nicolle.png" alt="zNicol System's">
+        <span>zNicol System's</span>
+      </a>
+
+      <div class="nav-links">
+        <a href="#features">Funciones</a>
+        <a href="#commands">Comandos</a>
+        <a href="#invite">Invitar</a>
+        <a href="https://discord.gg/CMv7K8pt7g">Soporte</a>
+      </div>
+    </nav>
+
+    <section class="hero" id="invite">
+      <div class="hero-content">
+        <div class="badge">
+          🛡️ Seguridad, moderación y gestión para Discord
+        </div>
+
+        <h1>
+          Protege tu servidor con <span>zNicol System's</span>
+        </h1>
+
+        <p class="hero-text">
+          Holiii, soy zNicol System’s, una bot creada para darle más seguridad,
+          orden y vida a tu comunidad. Puedo ayudarte con moderación, logs,
+          sistemas anti-scam, anti-links, comandos útiles y herramientas pensadas
+          para mantener tu servidor bonito, organizado y protegido.
+        </p>
+
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="https://discord.com/oauth2/authorize?client_id=1395515437885952151&scope=bot%20applications.commands&permissions=8">
+            💖 Invitar bot
+          </a>
+
+          <a class="btn btn-secondary" href="https://discord.gg/CMv7K8pt7g">
+            🫶 Servidor de soporte
+          </a>
+        </div>
+      </div>
+
+      <aside class="hero-card">
+        <video class="logo-video" autoplay muted loop playsinline>
+          <source src="1.mp4" type="video/mp4">
+        </video>
+
+        <h2>zNicol System's</h2>
+
+        <p>
+          Una bot enfocada en seguridad, estética, utilidad y administración
+          para comunidades de Discord.
+        </p>
+
+        <div class="mini-stats">
+          <div class="mini-stat">
+            <strong>24/7</strong>
+            <span>Seguridad</span>
+          </div>
+
+          <div class="mini-stat">
+            <strong>Logs</strong>
+            <span>Avanzados</span>
+          </div>
+
+          <div class="mini-stat">
+            <strong>Anti</strong>
+            <span>Scam</span>
+          </div>
+        </div>
+      </aside>
+    </section>
+
+    <section class="section">
+      <div class="info-panel">
+        <p>
+          💖 <b>Holii, soy zNicol System’s.</b>
+        </p>
+
+        <p>
+          Estoy diseñada para ayudarte a mejorar tu servidor de Discord con
+          sistemas claros, seguros y fáciles de usar. Mi objetivo es que tu
+          comunidad tenga herramientas útiles sin complicarte la vida con
+          configuraciones raras, errores absurdos o sistemas hechos a medias.
+        </p>
+
+        <p>
+          Puedo ayudarte con logs profesionales, moderación, protección contra
+          enlaces peligrosos, detección anti-scam y comandos pensados para que
+          los usuarios y el staff tengan una mejor experiencia.
+        </p>
+      </div>
+    </section>
+
+    <section class="section" id="features">
+      <div class="section-header">
+        <h2>🌸 Funciones principales</h2>
+        <p>
+          Estas son algunas de las herramientas que zNicol System's puede aportar
+          a tu servidor. Sí, por fin algo útil en internet.
+        </p>
+      </div>
+
+      <div class="features-grid">
+        <article class="feature-card">
+          <div class="feature-icon">🛡️</div>
+          <h3>Moderación</h3>
+          <p>
+            Herramientas para controlar usuarios, aplicar sanciones, mantener el
+            orden y ayudar al staff con acciones administrativas dentro del servidor.
+          </p>
+        </article>
+
+        <article class="feature-card">
+          <div class="feature-icon">📜</div>
+          <h3>Logs avanzados</h3>
+          <p>
+            Registros detallados para eventos importantes del servidor, como cambios,
+            eliminaciones, acciones de moderación y actividad relevante.
+          </p>
+        </article>
+
+        <article class="feature-card">
+          <div class="feature-icon">🔗</div>
+          <h3>Anti-links</h3>
+          <p>
+            Sistema pensado para detectar enlaces no permitidos y ayudar a evitar
+            publicidad, spam o links sospechosos dentro de los canales.
+          </p>
+        </article>
+
+        <article class="feature-card">
+          <div class="feature-icon">🚨</div>
+          <h3>Anti-scam</h3>
+          <p>
+            Protección contra mensajes peligrosos, intentos de estafa y contenido
+            sospechoso que pueda afectar a los miembros de tu comunidad.
+          </p>
+        </article>
+
+        <article class="feature-card">
+          <div class="feature-icon">🎮</div>
+          <h3>Diversión</h3>
+          <p>
+            Comandos entretenidos para darle más vida al servidor y mejorar la
+            interacción entre los miembros.
+          </p>
+        </article>
+
+        <article class="feature-card">
+          <div class="feature-icon">⚙️</div>
+          <h3>Gestión</h3>
+          <p>
+            Funciones útiles para organizar tu comunidad, configurar sistemas y
+            facilitar el trabajo del equipo administrativo.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="commands">
+      <div class="section-header">
+        <h2>✨ Cómo usarme</h2>
+        <p>
+          Usa estos comandos dentro de tu servidor para descubrir todo lo que puedo hacer.
+        </p>
+      </div>
+
+      <div class="commands">
+        <div class="command-box">
+          <code>/help</code>
+          <p>
+            Muestra todos mis comandos slash disponibles para que puedas ver mis
+            categorías y herramientas principales.
+          </p>
+        </div>
+
+        <div class="command-box">
+          <code>zNicol prefix</code>
+          <p>
+            Muestra todos mis comandos por prefix y las opciones disponibles para
+            usarme de forma clásica.
+          </p>
+        </div>
+
+        <div class="command-box">
+          <code>/auditlog-setup</code>
+          <p>
+            Configura el canal donde se enviarán logs importantes del servidor.
+          </p>
+        </div>
+
+        <div class="command-box">
+          <code>/antilink</code>
+          <p>
+            Configura el sistema anti-links para proteger canales contra enlaces
+            no permitidos.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-header">
+        <h2>🚀 Instalación rápida</h2>
+        <p>
+          Invitarme es fácil. Porque si esto también fuera difícil, ya sería una broma cruel.
+        </p>
+      </div>
+
+      <div class="steps">
+        <div class="step-card">
+          <h3>Invita el bot</h3>
+          <p>
+            Presiona el botón de invitación y selecciona el servidor donde quieres
+            agregar zNicol System's.
+          </p>
+        </div>
+
+        <div class="step-card">
+          <h3>Configura permisos</h3>
+          <p>
+            Asegúrate de darme los permisos necesarios para moderar, enviar embeds
+            y gestionar correctamente mis sistemas.
+          </p>
+        </div>
+
+        <div class="step-card">
+          <h3>Usa /help</h3>
+          <p>
+            Revisa mis comandos y empieza a configurar logs, seguridad, moderación
+            y herramientas para tu comunidad.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <div class="visit-counter">
+      <p>Visitas:</p>
+      <img src="https://visitor-badge.laobi.icu/badge?page_id=znicol-systems.github.io" alt="Contador de visitas">
+    </div>
+
+    <footer class="footer">
+      <div class="footer-links">
+        <a href="https://znicol-systems.github.io/">Inicio</a>
+        <a href="https://znicol-systems.github.io/privacy">Privacidad</a>
+        <a href="https://discord.gg/CMv7K8pt7g">Soporte</a>
+        <a href="https://discord.com/oauth2/authorize?client_id=1395515437885952151&scope=bot%20applications.commands&permissions=8">Invitar</a>
+      </div>
+
+      <p>
+        © zNico Community • zNicol System's
+      </p>
+
+      <p>
+        Diseñada para comunidades que quieren más seguridad, más orden y menos caos humano.
+      </p>
+    </footer>
+  </main>
+
+  <div id="uwuNotif">
+    <img src="https://znicol-systems.github.io/nicolle.png" alt="zNicol System's">
+
+    <div>
+      <strong>Bienvenido~ 💖</strong>
+      <p id="uwuText"></p>
+    </div>
+  </div>
+
+  <script>
+    const frasesUwu = [
+      "Holiii, gracias por visitarme 💕",
+      "Me alegra mucho verte por aquí 💖",
+      "Gracias por tomarte el tiempo de pasar ✨",
+      "Espero caerte bien 💜",
+      "Me hace feliz que estés aquí 🫶",
+      "Gracias por darme una oportunidad 💕",
+      "Estoy aquí para ti 💖",
+      "Espero gustarte ✨",
+      "Me encantaría acompañarte en tu servidor 💜",
+      "Puedes invitarme cuando quieras 🫶",
+      "Gracias por quedarte un ratito conmigo 💕",
+      "Me haces muy feliz con tu visita 💖",
+      "Espero ser útil para ti ✨",
+      "Estoy lista para ayudarte 💜",
+      "Me alegra que me hayas encontrado 🫶",
+      "Gracias por confiar en mí 💕",
+      "Quiero ayudarte en lo que necesites 💖",
+      "Espero que disfrutes estar conmigo ✨",
+      "Me encantaría ser parte de tu comunidad 💜",
+      "Gracias por fijarte en mí 🫶",
+      "Estoy hecha con cariño para ti 💕",
+      "Me gustaría acompañarte siempre 💖",
+      "Espero verte más seguido ✨",
+      "Me encanta tenerte aquí 💜",
+      "Gracias por acercarte a mí 🫶",
+      "Quiero hacer tu servidor mejor 💕",
+      "Estoy aquí para apoyarte 💖",
+      "Me haría ilusión que me invites ✨",
+      "Quiero ser tu bot de confianza 💜",
+      "Gracias por mirarme 🫶",
+      "Me gusta pasar tiempo contigo 💕",
+      "Espero hacerte la vida más fácil 💖",
+      "Estoy para ayudarte siempre ✨",
+      "Me hace ilusión conocerte 💜",
+      "Gracias por estar conmigo 🫶",
+      "Quiero ser parte de tu día 💕",
+      "Estoy lista para empezar contigo 💖",
+      "Espero gustarte mucho ✨",
+      "Me encantaría quedarme contigo 💜",
+      "Gracias por no ignorarme 🫶",
+      "Me haces sentir especial 💕",
+      "Estoy aquí para lo que necesites 💖",
+      "Quiero ayudarte a crecer ✨",
+      "Me alegra que estés aquí conmigo 💜",
+      "Gracias por darme atención 🫶",
+      "Espero ser útil para ti 💕",
+      "Quiero acompañarte siempre 💖",
+      "Me haces sonreír ✨",
+      "Estoy feliz de conocerte 💜",
+      "Gracias por elegirme 🫶"
+    ];
+
+    const clickSound = new Audio();
+
+    function mostrarNotificacion() {
+      const box = document.getElementById("uwuNotif");
+      const text = document.getElementById("uwuText");
+
+      if (!box || !text) {
+        return;
+      }
+
+      const fraseAleatoria = frasesUwu[Math.floor(Math.random() * frasesUwu.length)];
+
+      text.innerText = fraseAleatoria;
+
+      box.style.transform = "translateY(0)";
+      box.style.opacity = "1";
+
+      setTimeout(() => {
+        box.style.transform = "translateY(130px)";
+        box.style.opacity = "0";
+      }, 15000);
+    }
+
+    function activarBotones() {
+      const botones = document.querySelectorAll(".btn, .nav-links a, .footer-links a");
+
+      botones.forEach((boton) => {
+        boton.addEventListener("click", () => {
+          try {
+            clickSound.currentTime = 0;
+          } catch (error) {
+            console.log("Click sin sonido cargado.");
+          }
+        });
+      });
+    }
+
+    function animarEntrada() {
+      const elementos = document.querySelectorAll(".hero-content, .hero-card, .feature-card, .info-panel, .command-box, .step-card");
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.style.opacity = "1";
+            entry.target.style.transform = "translateY(0)";
+          }
+        });
+      }, {
+        threshold: 0.15
+      });
+
+      elementos.forEach((elemento) => {
+        elemento.style.opacity = "0";
+        elemento.style.transform = "translateY(20px)";
+        elemento.style.transition = "0.6s ease";
+        observer.observe(elemento);
+      });
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+      activarBotones();
+      animarEntrada();
+
+      setTimeout(() => {
+        mostrarNotificacion();
+      }, 1000);
+    });
+  </script>
 </body>
 </html>
